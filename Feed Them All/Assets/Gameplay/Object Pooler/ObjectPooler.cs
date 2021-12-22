@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,11 @@ public class ObjectPooler : MonoBehaviour
     }
 
     #region Singleton
+    /* ZTK was here
+     * Singleton sadece static instance değildir.
+     * Static instance olduğu gibi aynı zamanda başka instance olmamasını garantilemesi gerekir.
+     * Aynı objeden başka bir tane yaratıldığı zaman mevcutta bir tane olup olmadığını kontrol etmesi ve varsa yeni objeyi destroy etmesi gerekir.
+     */
     public static ObjectPooler Instance;
     private void Awake()
     {

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        /* ZTK was here
+         * Ayrık bir input sistemi çok güzel bir uygulama olmuş.
+         * Ancak oyun kodunu bu şekilde editör ya da mobil için ayrı ayrı yaparak kirletmek yerine.
+         * Bu ayrımı direkt bir input manager sistemi içinde yapsan kodunun okunabilirliği ciddi oranda artacaktır.
+         */
 #if UNITY_EDITOR
         EditorMovement();
 #else

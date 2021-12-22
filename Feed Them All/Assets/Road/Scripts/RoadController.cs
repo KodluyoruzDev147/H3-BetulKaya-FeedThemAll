@@ -52,6 +52,9 @@ public class RoadController : MonoBehaviour
         }
     }
 
+    /* ZTK was here
+     * Naughty Attributes kullanman güzel olmuş. :)
+     */
     [Button("Clear Roads")]
     public void ClearAllRoads()
     {
