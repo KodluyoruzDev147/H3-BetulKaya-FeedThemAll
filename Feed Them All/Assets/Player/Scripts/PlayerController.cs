@@ -5,16 +5,15 @@ using NaughtyAttributes;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
-
-    [BoxGroup("Visual Settings")]
-    [SerializeField] private Transform player;
+ 
     [BoxGroup("Visual Settings")]
     [SerializeField] private Transform camPos;
+    [SerializeField] private Transform playerVisual;
+
 
 
     [BoxGroup("Player Input Settings")]
-    [SerializeField] private float forwardSpeed;
+    [SerializeField] public float forwardSpeed;
     [BoxGroup("Player Input Settings")]
     [SerializeField] private MobileSwerveInputs _mobileSwerveInputs;
     [BoxGroup("Player Input Settings")]
@@ -27,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        // ObjectPooler.Instance.SpawnFromPool("Player", transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
     }
 
     private void Update()
@@ -52,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
         swerveAmount = Mathf.Clamp(swerveAmount, -maxSwerveAmount, maxSwerveAmount);
         transform.Translate(swerveAmount, 0, forwardMove.z);
-        camPos.position = new Vector3(camPos.position.x, camPos.position.y, player.transform.position.z);
+        camPos.position = new Vector3(camPos.position.x, camPos.position.y, playerVisual.transform.position.z);
 
     }
 
@@ -63,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
         swerveAmount = Mathf.Clamp(swerveAmount, -maxSwerveAmount, maxSwerveAmount);
         transform.Translate(swerveAmount, 0, forwardMove.z);
-        camPos.position = new Vector3(camPos.position.x, camPos.position.y, player.transform.position.z);
+        camPos.position = new Vector3(camPos.position.x, camPos.position.y, playerVisual.transform.position.z);
 
     }
 }
