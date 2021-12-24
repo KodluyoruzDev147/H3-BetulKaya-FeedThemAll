@@ -63,6 +63,7 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
 
+
         poolDictionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
     }
@@ -74,7 +75,6 @@ public class ObjectPooler : MonoBehaviour
             Debug.LogWarning("Pool with tag" + tag + " doesn't exist.");
         }
 
-        Debug.Log(value);
         for (int i = 0; i < value; i++)
         {
             GameObject objectToSpawn = poolDictionary[tag].Dequeue();
@@ -83,7 +83,8 @@ public class ObjectPooler : MonoBehaviour
             objectToSpawn.transform.position = position;
             objectToSpawn.transform.rotation = rotation;
 
-            position = position + new Vector3(Random.Range(-2f,2f), 0, 0);
+            position = position + new Vector3(Random.Range(-0.5f, .5f), 0, Random.Range(-0.5f, .5f));
+
             poolDictionary[tag].Enqueue(objectToSpawn);
         }
 
